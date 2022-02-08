@@ -8,15 +8,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class PlayerMapper implements RequestDtoMapper<PlayerRequestDto, Player>,
         ResponseDtoMapper<PlayerResponseDto, Player> {
+    private final TeamMapper teamMapper;
+
     @Override
     public Player mapToModel(PlayerRequestDto dto) {
         return Player.builder()
                 .fullName(dto.getFullName())
-                .ageInYears(dto.getAgeInYears())
-                .theNumberOfMonthsOfPlayerExperience(
-                        dto.getTheNumberOfMonthsOfPlayerExperience())
-                .fullAmount(dto.getFullAmount())
-                .team(dto.getTeam())
+                .birthDate(dto.getBirthDate())
+                .monthOfExperience(
+                        dto.getMonthOfExperience())
+                .salary(dto.getSalary())
+                .team(teamMapper.mapToModel(dto.getTeam()))
                 .build();
     }
 
@@ -25,11 +27,10 @@ public class PlayerMapper implements RequestDtoMapper<PlayerRequestDto, Player>,
         return PlayerResponseDto.builder()
                 .id(player.getId())
                 .fullName(player.getFullName())
-                .ageInYears(player.getAgeInYears())
-                .theNumberOfMonthsOfPlayerExperience(
-                        player.getTheNumberOfMonthsOfPlayerExperience())
-                .fullAmount(player.getFullAmount())
-                .team(player.getTeam())
+                .birthDate(player.getBirthDate())
+                .monthOfExperience(player.getMonthOfExperience())
+                .salary(player.getSalary())
+                .team(teamMapper.toResponseDto(player.getTeam()))
                 .build();
     }
 }
