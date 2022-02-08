@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class PlayerMapper implements RequestDtoMapper<PlayerRequestDto, Player>,
         ResponseDtoMapper<PlayerResponseDto, Player> {
-    TeamMapper teamMapper;
+    private final TeamMapper teamMapper;
 
     @Override
     public Player mapToModel(PlayerRequestDto dto) {
