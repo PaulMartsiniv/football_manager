@@ -13,7 +13,7 @@ public interface PlayerRepository extends JpaRepository<Player, Long>,
         JpaSpecificationExecutor<Player> {
     @Modifying
     @Query("UPDATE Player p "
-            + "SET p.fullAmount =: fullAmount, p.team =: ToTeamId "
+            + "SET p.salary =: salary, p.team =: ToTeamId "
             + "WHERE p.id =: id")
-    void updateAmountAndTeamId(Long id, BigDecimal fullAmount, Long toTeamId);
+    void updateAmountAndTeamId(Long id, BigDecimal salary, Long toTeamId);
 }

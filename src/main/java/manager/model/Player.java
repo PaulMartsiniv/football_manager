@@ -1,6 +1,7 @@
 package manager.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,12 +31,12 @@ public class Player {
     private Long id;
     @Column(name = "full_name")
     private String fullName;
-    @Column(name = "player_age_in_years")
-    private Integer ageInYears;
-    @Column(name = "the_number_of_months_of_player_experience")
-    private Integer theNumberOfMonthsOfPlayerExperience;
-    @Column(name = "full_amount")
-    private BigDecimal fullAmount;
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
+    @Column(name = "months_of_experience")
+    private Integer monthOfExperience;
+    @Column(name = "salary")
+    private BigDecimal salary;
     @ManyToOne
     @JoinColumn(name = "team_id")
     private Team team;

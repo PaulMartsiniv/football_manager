@@ -36,6 +36,14 @@ public class PlayerController {
         return playerMapper.toResponseDto(player);
     }
 
+    @PostMapping("/{teamId}")
+    public PlayerResponseDto addToTeam(@PathVariable Long teamId,
+                                       @RequestBody PlayerRequestDto playerRequestDto) {
+        Player player = playerService.saveToTeam(teamId,
+                playerMapper.mapToModel(playerRequestDto));
+        return playerMapper.toResponseDto(player);
+    }
+
     @GetMapping("/{id}")
     public PlayerResponseDto getById(@PathVariable Long id) {
         return playerMapper.toResponseDto(playerService.getById(id));
