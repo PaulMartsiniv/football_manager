@@ -1,13 +1,13 @@
 package manager.dto.request;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import manager.model.Team;
 
 @Getter
 @Setter
@@ -17,8 +17,8 @@ import manager.model.Team;
 @AllArgsConstructor
 public class PlayerRequestDto {
     private String fullName;
-    private Integer ageInYears;
-    private Integer theNumberOfMonthsOfPlayerExperience;
-    private BigDecimal fullAmount;
-    private Team team;
+    private LocalDate birthDate;
+    private Integer monthOfExperience;
+    private BigDecimal salary;
+    private TeamRequestDto team;
 }

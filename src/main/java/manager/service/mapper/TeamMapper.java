@@ -1,16 +1,13 @@
 package manager.service.mapper;
 
-import lombok.AllArgsConstructor;
 import manager.dto.request.TeamRequestDto;
 import manager.dto.response.TeamResponseDto;
 import manager.model.Team;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
 public class TeamMapper implements RequestDtoMapper<TeamRequestDto, Team>,
         ResponseDtoMapper<TeamResponseDto, Team> {
-    private final PlayerMapper playerMapper;
 
     @Override
     public Team mapToModel(TeamRequestDto dto) {
