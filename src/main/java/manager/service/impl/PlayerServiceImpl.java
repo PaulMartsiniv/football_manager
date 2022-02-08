@@ -5,7 +5,6 @@ import java.util.Map;
 import lombok.AllArgsConstructor;
 import manager.model.Player;
 import manager.repository.PlayerRepository;
-import manager.repository.TeamRepository;
 import manager.repository.spec.SpecificationManager;
 import manager.service.PlayerService;
 import org.springframework.data.jpa.domain.Specification;
@@ -15,28 +14,21 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class PlayerServiceImpl implements PlayerService {
     private final SpecificationManager<Player> manager;
-    private final PlayerRepository playerRepo;
-    private final TeamRepository teamRepo;
+    private final PlayerRepository playerDao;
 
     @Override
     public Player save(Player player) {
-        return playerRepo.save(player);
-    }
-
-    @Override
-    public Player saveToTeam(Long teamId, Player player) {
-        player.setTeam(teamRepo.getById(teamId));
-        return playerRepo.save(player);
+        return playerDao.save(player);
     }
 
     @Override
     public Player getById(Long id) {
-        return playerRepo.getById(id);
+        return playerDao.getById(id);
     }
 
     @Override
     public List<Player> findAll() {
-        return playerRepo.findAll();
+        return playerDao.findAll();
     }
 
     @Override
@@ -48,16 +40,16 @@ public class PlayerServiceImpl implements PlayerService {
             specification = specification == null
                     ? Specification.where(spec) : specification.and(spec);
         }
-        return playerRepo.findAll(specification);
+        return playerDao.findAll(specification);
     }
 
     @Override
     public Player update(Player player) {
-        return playerRepo.save(player);
+        return playerDao.save(player);
     }
 
     @Override
     public void deleteById(Long id) {
-        playerRepo.deleteById(id);
+        playerDao.deleteById(id);
     }
 }
