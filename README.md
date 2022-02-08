@@ -13,7 +13,7 @@
 >- Maven
 
 ### Diagram DB
-![drawing](src/main/resources/img.png)
+![drawing](src/main/resources/dbDiagram.png)
 
 ## Setup
 >1. run mvn clean package
