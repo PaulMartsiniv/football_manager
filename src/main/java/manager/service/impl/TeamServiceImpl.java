@@ -1,7 +1,6 @@
 package manager.service.impl;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import manager.model.Player;
@@ -15,47 +14,47 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class TeamServiceImpl implements TeamService {
-    private final TeamRepository teamRepo;
-    private final PlayerRepository playerRepo;
+    private final TeamRepository teamDao;
+    private final PlayerRepository playerDao;
 
     @Override
     public Team save(Team team) {
-        return teamRepo.save(team);
+        return teamDao.save(team);
     }
 
     @Override
     public Team getById(Long id) {
-        return teamRepo.getById(id);
+        return teamDao.getById(id);
     }
 
     @Override
     public List<Team> findAll() {
-        return teamRepo.findAll();
+        return teamDao.findAll();
     }
 
     @Override
     public Team update(Team team) {
-        return teamRepo.save(team);
+        return teamDao.save(team);
     }
 
     @Override
     public void deleteById(Long id) {
-        teamRepo.deleteById(id);
+        teamDao.deleteById(id);
     }
 
     @Override
     public void transferPlayer(Long fromTeamId, Long playerId, Long toTeamId) {
         AmountCalculation calculation = new AmountCalculation();
-        Team from = teamRepo.getById(fromTeamId);
-        Team to = teamRepo.getById(toTeamId);
-        Player player = playerRepo.getById(playerId);
+        Team from = teamDao.getById(fromTeamId);
+        Team to = teamDao.getById(toTeamId);
+        Player player = playerDao.getById(playerId);
         BigDecimal amount = calculation.getTransferAmount(
-                player.getMonthOfExperience(),
-                (LocalDate.now().getYear() - player.getBirthDate().getYear()),
+                player.getTheNumberOfMonthsOfPlayerExperience(),
+                player.getAgeInYears(),
                 from.getCommissionFromTheTeam());
 
-        playerRepo.updateAmountAndTeamId(playerId, amount, toTeamId);
-        teamRepo.updateBudget(fromTeamId, from.getBudget().add(amount));
-        teamRepo.updateBudget(toTeamId, to.getBudget().subtract(amount));
+        playerDao.updateAmountAndTeamId(playerId, amount, toTeamId);
+        teamDao.updateBudget(fromTeamId, from.getBudget().add(amount));
+        teamDao.updateBudget(toTeamId, to.getBudget().subtract(amount));
     }
 }

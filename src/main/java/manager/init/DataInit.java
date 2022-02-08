@@ -1,7 +1,6 @@
 package manager.init;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import manager.model.Player;
@@ -64,28 +63,28 @@ public class DataInit implements ApplicationRunner {
         return List.of(
                 Player.builder()
                         .fullName("Frederico Rodrigues de Paula Santos ")
-                        .birthDate(LocalDate.of(1994, 1, 1))
-                        .monthOfExperience(33)
+                        .ageInYears(28)
+                        .theNumberOfMonthsOfPlayerExperience(33)
                         .build(),
                 Player.builder()
                         .fullName("Cristiano Ronaldo dos Santos Aveiro")
-                        .birthDate(LocalDate.of(1993, 1, 1))
-                        .monthOfExperience(55)
+                        .ageInYears(36)
+                        .theNumberOfMonthsOfPlayerExperience(55)
                         .build(),
                 Player.builder()
                         .fullName("Juan Manuel Mata García")
-                        .birthDate(LocalDate.of(1992, 1, 1))
-                        .monthOfExperience(39)
+                        .ageInYears(33)
+                        .theNumberOfMonthsOfPlayerExperience(39)
                         .build(),
                 Player.builder()
                         .fullName("Bruno Miguel Borges Fernandes")
-                        .birthDate(LocalDate.of(1991, 1, 1))
-                        .monthOfExperience(32)
+                        .ageInYears(27)
+                        .theNumberOfMonthsOfPlayerExperience(32)
                         .build(),
                 Player.builder()
                         .fullName("Paul Labile Pogba")
-                        .birthDate(LocalDate.of(1990, 1, 1))
-                        .monthOfExperience(35)
+                        .ageInYears(28)
+                        .theNumberOfMonthsOfPlayerExperience(35)
                         .build()
         );
     }
@@ -94,28 +93,28 @@ public class DataInit implements ApplicationRunner {
         return List.of(
                 Player.builder()
                         .fullName("Alisson Ramses Becker")
-                        .birthDate(LocalDate.of(1989, 1, 1))
-                        .monthOfExperience(23)
+                        .ageInYears(29)
+                        .theNumberOfMonthsOfPlayerExperience(23)
                         .build(),
                 Player.builder()
                         .fullName("Fábio Henrique Tavares")
-                        .birthDate(LocalDate.of(1990, 1, 1))
-                        .monthOfExperience(30)
+                        .ageInYears(28)
+                        .theNumberOfMonthsOfPlayerExperience(30)
                         .build(),
                 Player.builder()
                         .fullName("Virgil van Dijk")
-                        .birthDate(LocalDate.of(1991, 1, 1))
-                        .monthOfExperience(31)
+                        .ageInYears(30)
+                        .theNumberOfMonthsOfPlayerExperience(31)
                         .build(),
                 Player.builder()
                         .fullName("Mohamed Salah Hamed Mahrous Ghaly")
-                        .birthDate(LocalDate.of(1992, 1, 1))
-                        .monthOfExperience(32)
+                        .ageInYears(28)
+                        .theNumberOfMonthsOfPlayerExperience(32)
                         .build(),
                 Player.builder()
                         .fullName("Diogo José Teixeira da Silva")
-                        .birthDate(LocalDate.of(1993, 1, 1))
-                        .monthOfExperience(25)
+                        .ageInYears(25)
+                        .theNumberOfMonthsOfPlayerExperience(25)
                         .build()
         );
     }
