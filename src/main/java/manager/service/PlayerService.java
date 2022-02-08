@@ -6,4 +6,6 @@ import manager.model.Player;
 
 public interface PlayerService extends GenericService<Player> {
     List<Player> findAll(Map<String, String> params);
+
+    Player saveToTeam(Long teamId, Player player);
 }
